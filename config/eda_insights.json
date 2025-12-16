@@ -1,0 +1,31 @@
+{
+  "target_skewness": 3.7949583775378586,
+  "target_log_skewness": 0.09661958950314063,
+  "use_log_target": true,
+  "n_categorical": 116,
+  "n_continuous": 14,
+  "max_cardinality": 326,
+  "max_outlier_pct": 7.01,
+  "top_mi_features": [
+    "cat80",
+    "cat79",
+    "cat101",
+    "cat100",
+    "cat87",
+    "cat12",
+    "cat10",
+    "cat81",
+    "cat1",
+    "cat114",
+    "cat2",
+    "cat9",
+    "cat72",
+    "cat11",
+    "cat13",
+    "cat57",
+    "cat7",
+    "cat89",
+    "cat103",
+    "cat111"
+  ]
+}
