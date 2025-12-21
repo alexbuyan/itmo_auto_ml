@@ -21,8 +21,9 @@ class LAMABaseline:
             "tuning_params": {"max_tuning_iter": 10, "max_tuning_time": 60},
         },
         "tuned": {
-            "general_params": {"use_algos": [["lgb", "lgb_tuned", "linear_l2"]]},
-            "tuning_params": {"max_tuning_iter": 30, "max_tuning_time": 120},
+            "general_params": {"use_algos": [["linear_l2", "lgb"], ["lgb_tuned"]]},
+            "tuning_params": {"max_tuning_iter": 100, "max_tuning_time": 300},
+            "use_utilized": True,
         },
         "full": {
             "general_params": {"use_algos": [["lgb", "lgb_tuned", "linear_l2", "cb", "cb_tuned"]]},
@@ -61,7 +62,8 @@ class LAMABaseline:
 
     def _create_automl(self) -> TabularAutoML:
         task = Task(name="reg", metric="mae")
-        AutoMLClass = TabularUtilizedAutoML if self.use_utilized else TabularAutoML
+        use_utilized = self._config.get("use_utilized", self.use_utilized)
+        AutoMLClass = TabularUtilizedAutoML if use_utilized else TabularAutoML
 
         return AutoMLClass(
             task=task,
